@@ -11,7 +11,14 @@ from time import sleep
 from datetime import datetime
 from datetime import timedelta
 
-WATCH_INTERVAL = 1
+
+# Path to your git binary
+GIT = "usr/bin/git"
+
+# How often to check for jobs
+WATCH_INTERVAL = 2
+
+# File with jobs in it
 QUEUE = "/tmp/hardworkq.txt"
 random.seed()
 
@@ -29,7 +36,14 @@ def start_process():
                     push_time, "%Y-%m-%d %H:%M:%S.%f"
                 )
 
-                # Check if this job should be executed
+                # print(
+                #     "@a78 ~/projects/python/hard-worker/hard-worker.py:31\n>",
+                #     f"now, later, {datetime.now()}, {push_time}, {datetime.now() >= push_time}",
+                # )
+                jobs[repo] = push_time
+
+            # Check if jobs should be executed
+            for job, push_time in jobs.items():
                 if datetime.now() >= push_time:
                     pushed = True
                     print(f"Pushing {'...' + repo[-20:]}!")
@@ -37,6 +51,11 @@ def start_process():
                     jobs_finished[repo] = (push_time, success)
                 else:
                     jobs[repo] = push_time
+
+            # Remove outdated jobs
+            for job in jobs_finished:
+                if job in jobs:
+                    del jobs[job]
 
         # If we completed a job, regardless of success, update the queue
         if pushed:
@@ -75,10 +94,10 @@ def render_jobs_finished(
 
 
 def git_push(repo: str) -> bool:
-    # p = subprocess.Popen(["git", "push"], cwd=repo)
-    p = subprocess.Popen(
-        ["touch", f"hardworkertest{datetime.now()}"], cwd=repo
-    )
+    p = subprocess.Popen(["git", "push"], cwd=repo)
+    # p = subprocess.Popen(
+    #     ["touch", f"hardworkertest{datetime.now()}"], cwd=repo
+    # )
     p.wait()
 
     return p.returncode == 0
@@ -135,7 +154,6 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     current_path = os.getcwd()
-    print(args.delay, args.process)
 
     # Add this to the queue.
     if not args.process:
