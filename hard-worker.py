@@ -125,12 +125,12 @@ def get_push_time(delay: int) -> datetime:
     # 2 - 5 hours after 5PM local.
     if not delay:
         end_of_day = datetime.now().replace(hour=17)
-        # return datetime.now() + timedelta(
-        #     hours=random.randint(2, 5), minutes=random.randint(0, 60),
-        # )
         return datetime.now() + timedelta(
-            minutes=random.randint(0, 1),
+            hours=random.randint(2, 5), minutes=random.randint(0, 60),
         )
+        # return datetime.now() + timedelta(
+        #     minutes=random.randint(0, 1),
+        # )
     # Otherwise, return the current time + <delay> hours
     return datetime.now() + timedelta(hours=delay)
 

@@ -1,10 +1,14 @@
 # Hard-Worker
+![](./demo.gif)
+
 Stay late! Get up early! Without having to stay late or get up early!
 
 Do it all as easy as typing `hardwork`.
 
 ### What?
-This script `git pushes` your changes for you automatically, really late in the evening, or early in the morning, or whenever you want. Usecases:
+This script `git pushes` your changes for you automatically, really late in the evening, or early in the morning, or whenever you want.
+
+Usecases:
 1. Looking like a hard worker
 2. Looking like an early riser
 3. Slowly pushing several changes over the course of a week while you secretly road trip across the country
@@ -14,14 +18,13 @@ This script `git pushes` your changes for you automatically, really late in the 
 1. Test if it's working by starting the hardwork process with `hardwork -s`
 1. You may have to change `/usr/local/bin` to some other valid directory in your `$PATH`.
 
-#### Start the hardwork process
-`$ hardwork -s`
-
-#### Enqueue the current repo to be pushed later at a random time (after 5PM local time, of course)
-`$ hardwork`
-
-#### Enqueue the current repo to be pushed later after a specified delay time
-`$ hardwork -d 3 # Will push in 3 hours`
+### Usage
+1. Start the hardwork process
+    - `$ hardwork -s`
+2. Enqueue the current repo to be pushed later at a random time (after 5PM local time, of course)
+    - `$ hardwork`
+3. Enqueue the current repo to be pushed later after a specified delay time
+    - `$ hardwork -d 3 # Will push in 3 hours`
 
 
 ```
