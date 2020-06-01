@@ -68,7 +68,7 @@ def start_process():
 def render_jobs(jobs: Dict[str, datetime]) -> str:
     out = "Hard work to be done:\n"
     for repo, push_time in jobs.items():
-        out += f"  • {'...' + repo[-20:]}: {push_time.strftime('[%I:%M %p]')}\n"
+        out += f"  • Push {'...' + repo[-20:]} at {push_time.strftime('[%I:%M %p]')}\n"
 
     return out.strip()
 
