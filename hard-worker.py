@@ -35,11 +35,6 @@ def start_process():
                 push_time = datetime.strptime(
                     push_time, "%Y-%m-%d %H:%M:%S.%f"
                 )
-
-                # print(
-                #     "@a78 ~/projects/python/hard-worker/hard-worker.py:31\n>",
-                #     f"now, later, {datetime.now()}, {push_time}, {datetime.now() >= push_time}",
-                # )
                 jobs[repo] = push_time
 
             # Check if jobs should be executed
@@ -95,9 +90,6 @@ def render_jobs_finished(
 
 def git_push(repo: str) -> bool:
     p = subprocess.Popen(["git", "push"], cwd=repo)
-    # p = subprocess.Popen(
-    #     ["touch", f"hardworkertest{datetime.now()}"], cwd=repo
-    # )
     p.wait()
 
     return p.returncode == 0
@@ -128,9 +120,6 @@ def get_push_time(delay: int) -> datetime:
         return datetime.now() + timedelta(
             hours=random.randint(2, 5), minutes=random.randint(0, 60),
         )
-        # return datetime.now() + timedelta(
-        #     minutes=random.randint(0, 1),
-        # )
     # Otherwise, return the current time + <delay> hours
     return datetime.now() + timedelta(hours=delay)
 
