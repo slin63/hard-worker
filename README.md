@@ -14,7 +14,7 @@ Usecases:
 3. Slowly pushing several changes over the course of a week while you secretly road trip across the country
 
 ### Install
-1. `curl https://raw.githubusercontent.com/slin63/hard-worker/master/hard-worker.py -o /usr/local/bin/hardwork && chmod +x /usr/local/bin/hardwork`
+1. `curl https://raw.githubusercontent.com/slin63/hard-worker/master/hard-worker.py -o /usr/local/bin/hardwork && chmod +x /usr/local/bin/hardwork && touch /tmp/hardworkq.txt`
 1. Test if it's working by starting the hardwork process with `hardwork -p`
 2. You may have to change `/usr/local/bin` to some other valid directory in your `$PATH`.
 
