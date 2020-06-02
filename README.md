@@ -29,7 +29,7 @@ Usecases:
 
 ### `--help`:
 ```
-hardwork -d <hours> -s -h (--help)
+hardwork -d <hours> -p -h (--help)
     -d --delay how many hours from now to git push the current git repo
     -p --process run the hardwork process, necessary for hardwork to... work
     -h --help: print out this message
