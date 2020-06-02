@@ -27,10 +27,10 @@ Usecases:
 3. Enqueue the current repo to be pushed later after a specified delay time
     - `$ hardwork -d 3 # Will push in 3 hours`
 
-
+### `--help`:
 ```
 hardwork -d <hours> -s -h (--help)
-    -d how many hours from now to git push the current git repo
-    -s run the hardwork process, necessary for hardwork to... work
-    -h / --help: print out this message
+    -d --delay how many hours from now to git push the current git repo
+    -p --process run the hardwork process, necessary for hardwork to... work
+    -h --help: print out this message
 ```
