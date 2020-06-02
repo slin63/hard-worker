@@ -1,4 +1,4 @@
-# Hard-Worker
+# Hard-Worker 😤💦
 ![](./demo.gif)
 
 Stay late! Get up early! Without having to stay late or get up early!
@@ -17,6 +17,7 @@ Usecases:
 1. `curl https://raw.githubusercontent.com/slin63/hard-worker/master/hard-worker.py -o /usr/local/bin/hardworker && chmod +x /usr/local/bin/hardworker`
 1. Test if it's working by starting the hardwork process with `hardwork -s`
 1. You may have to change `/usr/local/bin` to some other valid directory in your `$PATH`.
+
 
 ### Usage
 1. Start the hardwork process

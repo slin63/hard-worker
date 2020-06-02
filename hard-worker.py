@@ -16,7 +16,7 @@ from datetime import timedelta
 GIT = "usr/bin/git"
 
 # How often to check for jobs
-WATCH_INTERVAL = 20
+WATCH_INTERVAL = 1
 
 # File with jobs in it
 QUEUE = "/tmp/hardworkq.txt"
@@ -49,7 +49,7 @@ def start_process():
 
             # Remove outdated jobs
             for job in jobs_finished:
-                if job in jobs:
+                if job in jobs and jobs[job] == jobs_finished[job][0]:
                     del jobs[job]
 
         # If we completed a job, regardless of success, update the queue
