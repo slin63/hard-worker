@@ -38,14 +38,12 @@ def start_process():
                 jobs[repo] = push_time
 
             # Check if jobs should be executed
-            for job, push_time in jobs.items():
+            for repo, push_time in jobs.items():
                 if datetime.now() >= push_time:
                     pushed = True
                     print(f"Pushing {'...' + repo[-20:]}!")
                     success = git_push(repo)
                     jobs_finished[repo] = (push_time, success)
-                else:
-                    jobs[repo] = push_time
 
             # Remove outdated jobs
             for job in jobs_finished:
