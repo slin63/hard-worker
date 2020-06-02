@@ -16,7 +16,7 @@ from datetime import timedelta
 GIT = "usr/bin/git"
 
 # How often to check for jobs
-WATCH_INTERVAL = 2
+WATCH_INTERVAL = 20
 
 # File with jobs in it
 QUEUE = "/tmp/hardworkq.txt"
