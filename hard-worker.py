@@ -59,10 +59,21 @@ def start_process():
                     queue.write(f"{repo}!!{push_time}\n")
 
         sleep(WATCH_INTERVAL)
+        clear()
         print("\n---")
         print(render_jobs(jobs))
         print(render_jobs_finished(jobs_finished))
         print("---")
+
+
+def clear():
+    # for windows
+    if os.name == "nt":
+        os.system("cls")
+
+    # for mac and linux(here, os.name is 'posix')
+    else:
+        os.system("clear")
 
 
 def render_jobs(jobs: Dict[str, datetime]) -> str:
